@@ -16,16 +16,20 @@ Object.keys(toppingsList).forEach(topping => {
     console.log(actualPizza)
   })
 
-document.getElementById('addPizza').addEventListener('click', function (evt) {
-  document.getElementById('toppingsList').style.visibility = 'visible'
-  actualPizza = new Pizza('Pizza yolo !')
-  }, false)
-
   toppingsButtons.appendChild(toppingButton)
 
 })
 
 toppingsButtons.style.visibility = 'hidden'
+document.getElementById('addPizza').addEventListener('click', function (evt) {
+  document.getElementById('toppingsList').style.visibility = 'visible'
+  actualPizza = new Pizza('Pizza yolo !')
+  }, false)
+
+document.getElementById('savePizza').addEventListener('click', function (evt) {
+  document.getElementById('toppingsList').style.visibility = 'hidden'
+  actualPizza.savePizza(pizzaList)
+  }, false)
 
 /*var pizzaList = new PizzaList()
 document.getElementById('toppingList').style.visibility = 'hidden'
