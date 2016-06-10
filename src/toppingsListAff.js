@@ -16,7 +16,6 @@ export class ToppingsListAff {
         this.listAff.removeChild(child)
       })
     }
-    this.divListAff.appendChild(this.listAff)
   }
 
   toppingListMaj() {
