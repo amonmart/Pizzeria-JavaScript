@@ -1,16 +1,10 @@
 import { Pizza } from './pizza.js'
 import { PizzaList } from './pizzaList.js'
-import { toppings } from './toppings.js'
+import { toppings } from './toppingsList.js'
 
 document.getElementById('toppingList').style.visibility = 'hidden'
 var pizzaList = new PizzaList()
 var actualPizza = null
-var h2 = document.getElementById('pizza')
-
-document.getElementById('addPizza').addEventListener('click', function (evt) {
-  actualPizza = new Pizza('Pizza yolo !')
-  h2.innerHTML = actualPizza.name + ' ' + actualPizza.toppings2string()
-}, false)
 
 var toppingsButtons = document.getElementById('toppingList')
 Object.keys(toppings).forEach(topping => {
@@ -22,6 +16,11 @@ Object.keys(toppings).forEach(topping => {
     actualPizza.addTopping(topping)
     console.log(actualPizza)
   })
+
+document.getElementById('addPizza').addEventListener('click', function (evt) {
+  document.getElementById('toppingList').style.visibility = 'visible'
+  actualPizza = new Pizza('Pizza yolo !')
+  }, false)
 
   toppingsButtons.appendChild(toppingButton)
 
