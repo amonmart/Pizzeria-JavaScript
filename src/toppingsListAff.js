@@ -1,6 +1,6 @@
 export class ToppingsListAff {
-  constructor(pizza) {
-    this.pizza = pizza
+  constructor() {
+    this.pizza
     this.listAff = document.createElement('UL')
     this.divListAff = document.getElementById('toppingsListAff')
   }
