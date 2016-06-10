@@ -5,7 +5,11 @@ export class ToppingsListAff {
     this.divListAff = document.getElementById('toppingsListAff')
   }
 
-  toppingListShow() {
+  toppingListSetPizza (pizza) {
+    this.pizza = pizza
+  }
+
+  toppingListInit() {
     this.divListAff.appendChild(this.listAff)
   }
 
