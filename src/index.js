@@ -23,7 +23,6 @@ Object.keys(toppingsList).forEach(topping => {
 
 })
 
-toppingsButtons.style.visibility = 'hidden'
 document.getElementById('addPizza').addEventListener('click', function (evt) {
   document.getElementById('toppingsList').style.visibility = 'visible'
   actualPizza = new Pizza('Pizza yolo !')
@@ -32,7 +31,6 @@ document.getElementById('addPizza').addEventListener('click', function (evt) {
   }, false)
 
 document.getElementById('savePizza').addEventListener('click', function (evt) {
-  document.getElementById('toppingsList').style.visibility = 'hidden'
   actualPizza.savePizza(pizzaList)
   pizzaToppingsAff.toppingListInit()
   }, false)
