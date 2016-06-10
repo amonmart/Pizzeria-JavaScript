@@ -1,7 +1,33 @@
 import { Pizza } from './pizza.js'
 import { PizzaList } from './pizzaList.js'
+import { toppings } from './toppings.js'
 
+document.getElementById('toppingList').style.visibility = 'hidden'
 var pizzaList = new PizzaList()
+var actualPizza = null
+var h2 = document.getElementById('pizza')
+
+document.getElementById('addPizza').addEventListener('click', function (evt) {
+  actualPizza = new Pizza('Pizza yolo !')
+  h2.innerHTML = actualPizza.name + ' ' + actualPizza.toppings2string()
+}, false)
+
+var toppingsButtons = document.getElementById('toppingList')
+Object.keys(toppings).forEach(topping => {
+
+  const toppingButton = document.createElement('button')
+  toppingButton.innerHTML = topping
+
+  toppingButton.addEventListener('click', evt => {
+    actualPizza.addTopping(topping)
+    console.log(actualPizza)
+  })
+
+  toppingsButtons.appendChild(toppingButton)
+
+})
+
+/*var pizzaList = new PizzaList()
 document.getElementById('toppingList').style.visibility = 'hidden'
 var actualPizza
 
