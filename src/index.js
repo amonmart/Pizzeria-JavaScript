@@ -34,4 +34,5 @@ document.getElementById('addPizza').addEventListener('click', function (evt) {
 document.getElementById('savePizza').addEventListener('click', function (evt) {
   document.getElementById('toppingsList').style.visibility = 'hidden'
   actualPizza.savePizza(pizzaList)
+  pizzaToppingsAff.toppingListInit()
   }, false)
