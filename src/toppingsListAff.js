@@ -1,7 +1,7 @@
 export class ToppingsListAff {
   constructor() {
     this.pizza
-    this.listAff = document.createElement('UL')
+    this.listAff = document.getElementById('toppingsListTableBody')
     this.divListAff = document.getElementById('toppingsListAff')
     this.listChildElement = []
   }
@@ -29,7 +29,7 @@ export class ToppingsListAff {
     }
 
     this.pizza.toppings.forEach(topping => {
-      const toppingLi = document.createElement('LI')
+      const toppingLi = document.createElement('TR')
       toppingLi.innerHTML = topping
       this.listAff.appendChild(toppingLi)
       this.listChildElement = this.listAff.childNodes
