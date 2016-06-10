@@ -6,7 +6,6 @@ import { ToppingsListAff } from './toppingsListAff.js'
 var pizzaList = new PizzaList()
 var actualPizza = null
 var pizzaToppingsAff = new ToppingsListAff()
-pizzaToppingsAff.toppingListInit()
 
 var toppingsButtons = document.getElementById('toppingsList')
 Object.keys(toppingsList).forEach(topping => {
