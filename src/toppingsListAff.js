@@ -16,13 +16,12 @@ export class ToppingsListAff {
         this.listAff.removeChild(child)
       })
     }
-    this.divListAff.appendChild(this.listAff)
   }
 
   toppingListMaj() {
     console.log(this.pizza.toppings)
 
-    if(this.listChildElement.length !== 0){
+    if (this.listChildElement.length !== 0){
       Array.prototype.slice.call(this.listChildElement).forEach(child => {
         this.listAff.removeChild(child)
       })
