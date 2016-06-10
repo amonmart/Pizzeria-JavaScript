@@ -2,7 +2,6 @@ import { Pizza } from './pizza.js'
 import { PizzaList } from './pizzaList.js'
 import { toppings } from './toppingsList.js'
 
-document.getElementById('toppingList').style.visibility = 'hidden'
 var pizzaList = new PizzaList()
 var actualPizza = null
 
@@ -16,6 +15,7 @@ Object.keys(toppings).forEach(topping => {
     actualPizza.addTopping(topping)
     console.log(actualPizza)
   })
+toppingsButtons.style.visibility = 'hidden'
 
 document.getElementById('addPizza').addEventListener('click', function (evt) {
   document.getElementById('toppingList').style.visibility = 'visible'
