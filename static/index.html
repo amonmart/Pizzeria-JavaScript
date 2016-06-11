@@ -12,6 +12,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="pizzeria_style.css">
   <title>Pizzeria</title>
+  <script>
+      function allowDrop(ev) {
+    ev.preventDefault();
+    }
+
+    function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("topping");
+    console.log(ev.target)
+    var toppingLi = $('<li class="list-group-item">'+data+'</li>')
+    $(ev.target).appendTo(toppingLi);
+    }
+    </script>
 </head>
 
 <body>
@@ -28,32 +41,40 @@
         <a class="navbar-brand" href="#">Pizzeria</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
-        <button type="button" id="addPizza">Create Pizza</button>
-        <button id="savePizza ">Save Pizza</button>
+        <div style='margin : 10px;'>
+          <button class="btn btn-default" id="addPizza">Create Pizza</button>
+        </div>
       </div>
     </div>
   </nav>
-  
+
   <!-- /.container -->
 
-  <div class="container-fluid ">
-    <h1>Gestion des pizzas</h1>
-    <div class="alert alert-success close" >
+  <div id='containerToppingListAff' class="container collapse-group">
+    <div class='jumbotron'>
+      <h1>Pizza creator</h1>
     </div>
-    <div id='toppingsList'></div>
-    <div>
-    <table class="table table-condensed ">
-      <thead>
-      <tr>
-        <th>Topping list</th>
-      </tr>
-      </thead>
-      <tbody id='toppingsListTableBody'>
-      </tbody>
-    </table>
+    <div id='pizzaCreatorHead' class="row">
+      <div class='col-sm-8 col-md-5 col-md-offset-1'>
+        <input id='pizzaNameTextArea' type="text" class="form-control" placeholder='Pizza Name'>
+      </div>
+      <div class='col-sm-4 col-md-4 col-md-offset-1'>
+        <button class='btn btn-success btn-block' id='savePizza'>Save Pizza</button>
+      </div>
     </div>
-    <div ></div>
-    <script src='build.js'></script>
+    <div id='toppingsButtonsList' class='row col-sm-8 col-md-5 col-md-offset-1'>
+      <h2>Usable toppings</h2>
+    </div>
+    <div class=' container col-sm-8 col-md-4 col-md-offset-1'>
+      <h2>Current Pizza</h2>
+      <div  class='row panel panel-default'>
+        <div class='panel-heading'>Toppings list</div>
+        <div id='toppingsListAff' class='panel-body'>
+        </div>
+      </div>
+    </div>
   </div>
+  <script src='build.js'></script>
 </body>
+
 </html>
