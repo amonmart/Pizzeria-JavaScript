@@ -74,6 +74,13 @@ export class Pizza {
     }
   }
 
+  removeTopping (topping) {
+    const pos = this.toppings.indexOf(topping)
+    if (pos !== -1) {
+      this.toppings.splice(pos, 1)
+    }
+    return this
+  }
   removeToppings (Toppings) {
     this.toppings = this.toppings.filter(function (item) {
       return item !== Toppings
