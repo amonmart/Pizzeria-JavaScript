@@ -1,10 +1,11 @@
 import {toppingsList as authorizedToppings} from './toppingsList.js'
 
 export class Pizza {
-  constructor (name) {
+  constructor ({ name = 'new pizza', id = null, toppings = [], status = 0 } = {}) {
+    if (id) this.id = id
     this.name = name
-    this.toppings = []
-    this.status = 0
+    this.toppings = toppings
+    this.status = status
   }
 
   setName (name) {
@@ -13,6 +14,10 @@ export class Pizza {
 
   savePizza (pizzaList) {
     return pizzaList.db.pizzas.add(this)
+  }
+
+  updatePizza (pizzaList) {
+    return pizzaList.db.pizzas.put(this)
   }
 
   addTopping (topping) {
@@ -64,7 +69,7 @@ export class Pizza {
       return new Promise(resolve => {
         setTimeout(() => {
           this.status = 2
-          resolve()
+          resolve(this)
         }, time)
       })
     } else if (this.status === 1) {

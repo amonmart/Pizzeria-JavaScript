@@ -42,20 +42,38 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <div style='margin : 10px;'>
+          <button class="btn btn-default" id="listPizza">Pizza list</button>
           <button class="btn btn-default" id="addPizza">Create Pizza</button>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- /.container -->
-
+  <!-- /.container list pizza -->
+  <div id='containerPizzaListApp' class="container collapse-group">
+    <div class='jumbotron'>
+      <h1>Pizza list</h1>
+    </div>
+    <table class='table table-striped'>
+      <thead>
+        <tr>
+          <th>Pizza name</th>
+          <th>Toppings</th>
+          <th>Cook</th>
+        </tr>
+      </thead>
+      <tbody id='pizzaListTable'>
+      </tbody>
+    </table>
+    <button id='cookAllPizzaBtn' class='btn btn-success col-xs-3 col-xs-offset-9'>Cook all pizzas</button>
+  </div>
+  <!-- /.container create pizza -->
   <div id='containerToppingListAff' class="container collapse-group">
     <div class='jumbotron'>
       <h1>Pizza creator</h1>
     </div>
     <div id='pizzaCreatorHead' class="row">
-      <div class='col-sm-8 col-md-5 col-md-offset-1'>
+      <div class='col-sm-8 col-md-5 col-md-offset-1' id= 'monid'>
         <input id='pizzaNameTextArea' type="text" class="form-control" placeholder='Pizza Name'>
       </div>
       <div class='col-sm-4 col-md-4 col-md-offset-1'>
@@ -64,11 +82,12 @@
     </div>
     <div id='toppingsButtonsList' class='row col-sm-8 col-md-5 col-md-offset-1'>
       <h2>Usable toppings</h2>
+      
     </div>
     <div class=' container col-sm-8 col-md-4 col-md-offset-1'>
       <h2>Current Pizza</h2>
-      <div  class='row panel panel-default'>
-        <div class='panel-heading'>Toppings list</div>
+      <div class='row panel panel-default'>
+        <div class='panel-heading'><strong>Toppings list</strong> : click to delete</div>
         <div id='toppingsListAff' class='panel-body'>
         </div>
       </div>

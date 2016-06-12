@@ -21,25 +21,27 @@ export class ToppingsButtonsList {
         $(this.container).collapse('hide')
     }
 
-    init(toppingListAff, pizzaList) {
+    init(toppingListAff, pizzaList, pizzaListApp) {
         this.toppingListAff = toppingListAff
         var context = this
-
+        var pizzaListApp = pizzaListApp
         //Initialisation de la liste de toppingsButtonsList
 
 
         //Initialisation du bouton savePizza
         document.getElementById('savePizza').addEventListener('click', function (evt) {
             var pizzaName = document.getElementById('pizzaNameTextArea').value
-            if (pizzaName === "") {
-                $(document.body).append($('<div class=" alert alert-danger">Enter a pizza name</div>'))
-            } else {
+            if (pizzaName) {
                 context.hide()
                 context.currentPizza.setName(pizzaName) 
                 context.currentPizza.savePizza(pizzaList)
+                pizzaListApp.pizzaListMaj()
+                if(this.alert)this.alert.remove()
+            } 
+            if (!pizzaName && !this.alert) {
+                $(document.body).append($('<div id="savePizzaAlert" class=" alert alert-danger">Enter a pizza name</div>'))
+                this.alert = document.getElementById('savePizzaAlert')
             }
-
-            
         }, false)
 
         //Initialisation des boutons d'ingredients

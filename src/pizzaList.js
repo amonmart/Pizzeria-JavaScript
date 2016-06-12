@@ -15,11 +15,22 @@ export class PizzaList {
   }
 
   getPizzas () {
-    return new Promise(resolve => { return resolve.pizzas })
+    return this.db.pizzas.toArray()
   }
 
   findPizzaByTopping (topping) {
     let retour = this.pizzas.filter(p => p.isInPizza(topping))
     return retour
+  }
+
+  toHtml () {
+    return this.getPizzas()
+      .then(pizzas => pizzas.map(json => new Pizza(json)))
+      .then(pizzas => pizzas.map(pizza => pizza.toHtml()))
+      .then(pizzaRows => `
+        <tr> 
+          ${pizzaRows.join('')}
+        </tr>
+      `)
   }
 }

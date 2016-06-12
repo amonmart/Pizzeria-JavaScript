@@ -1,5 +1,5 @@
 body {
-  padding-top: 100px;
+  padding-top: 130px;
   padding-bottom: 20px;
 }
 
@@ -10,4 +10,13 @@ h1 {
 h2 {
     text-align: center;
     margin: 10px;
+}
+
+#savePizzaAlert {
+    position:fixed; 
+    top: 55px; 
+    left: 0px; 
+    width: 100%;
+    z-index:9999; 
+    border-radius:0px
 }
